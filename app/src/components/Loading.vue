@@ -9,8 +9,8 @@
 
 <style lang="scss" scoped>
     .app-loader {
-        width: 100vh;
-        height: 100vw;
+        width: 100vw;
+        height: 100vh;
         position: fixed;
         background: rgba(127, 127, 127, 0.5);
         z-index: 1000;

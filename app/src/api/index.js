@@ -12,7 +12,7 @@ class API {
             return data;
         }],
         transformResponse: [(data, headers) => {
-            // this.appVue.$store.dispatch('setLoading', false)
+            this.appVue.$store.dispatch('setLoading', false)
             try {
                 return JSON.parse(data);
             } catch(e) {
