@@ -3,22 +3,28 @@ import { createStore } from 'vuex'
 export default createStore({
     state () {
         return {
-            count: 0
+            loading: false,
+            loadingCount: 0,
         }
     },
     getters: {
-        count(state) {
-            return state.count
+        loading(state) {
+            return state.loading
         }
     },
     mutations: {
-        increment(state) {
-            state.count++
+        setLoading(state, value) {
+            if (value) {
+                state.loadingCount++
+            } else {
+                state.loadingCount--
+            }
+            state.loading = state.loadingCount > 0
         }
     },
     actions: {
-        increment(context) {
-            context.commit('increment')
+        setLoading(context, value) {
+            context.commit('setLoading', value)
         }
     }
 })

@@ -1,5 +1,6 @@
 <template>
     <div class="app">
+        <Loading v-if="loading" />
         <header class="app-header">
             <div v-for="link in links" 
                     :key="link.routeName" 
@@ -16,33 +17,32 @@
 </template>
 
 <script>
-    export default {
-        data() {
-            return {
-                isMain: true,
-                links: [
-                    {
-                        name: 'проверка стора',
-                        routeName: 'CheckStore'
-                    },
-                    {
-                        name: 'пустая страница',
-                        routeName: 'Page'
-                    }
-                ]
-            }
+import { mapGetters } from 'vuex'
+
+export default {
+    data() {
+        return {
+            isMain: true,
+            links: [
+                {
+                    name: 'график',
+                    routeName: 'BarChart'
+                },
+            ]
+        }
+    },
+    computed: {
+        ...mapGetters(['loading']),
+        activeRouteName() {
+            return this.$route.name
         },
-        computed: {
-            activeRouteName() {
-                return this.$route.name
-            }
-        },
-        methods: {
-            goTo(routeName) {
-                this.$router.push({name: routeName})
-            }
-        },
-    }
+    },
+    methods: {
+        goTo(routeName) {
+            this.$router.push({name: routeName})
+        }
+    },
+}
 </script>
 
 <style lang="scss" scoped>
