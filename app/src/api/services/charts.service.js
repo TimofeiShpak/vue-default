@@ -1,7 +1,7 @@
 const funcApi = api => {
     api.charts = {
-        getCharts() {
-            return api.request.get('/charts');
+        getCharts(url) {
+            return api.request.get('/'+url);
         },
     }
 }

@@ -18,17 +18,18 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import { chartRoutes } from '@/router'
 
 export default {
     data() {
         return {
             isMain: true,
-            links: [
-                {
-                    name: 'график',
-                    routeName: 'BarChart'
-                },
-            ]
+            links: chartRoutes.map(x => {
+                return {
+                    name: x.name,
+                    routeName: x.name,
+                }
+            })
         }
     },
     computed: {
@@ -72,6 +73,10 @@ export default {
 
         button {
             cursor: pointer;
+        }
+
+        &-header {
+            margin-top: 10px;
         }
 
         &-content {

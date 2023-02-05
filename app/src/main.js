@@ -5,6 +5,7 @@ import store from '@/store'
 import router from '@/router'
 import api from '@/api'
 import utils from '@/utils/components'
+import chartJS from '@/utils/chart-register'
 
 const app = createApp(App)
 app.use(store);
